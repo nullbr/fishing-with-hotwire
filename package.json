@@ -1,0 +1,23 @@
+{
+  "name": "fishing",
+  "private": "true",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.1",
+    "esbuild": "^0.14.11",
+    "debounce": "^1.2.1",
+    "nouislider": "^15.5.1",
+    "wnumb": "^1.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.8",
+    "tailwindcss": "^3.0.23",
+    "@tailwindcss/forms": "^0.5.0",
+    "postcss-import": "^14.0.2"
+  },
+  "scripts": {
+    "build:css": "tailwindcss --minify --postcss ./config/postcss.config.js -c ./config/tailwind.config.js -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
+    "build": "esbuild app/javascript/*.* --bundle --outdir=app/assets/builds"
+  }
+}

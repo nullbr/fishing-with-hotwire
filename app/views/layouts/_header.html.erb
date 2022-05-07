@@ -1,0 +1,50 @@
+<header>
+  <nav class="primary">
+    <ul>
+      <% if signed_in? %>
+        <li>
+          <%= nav_link_to current_user.username, current_user %>
+        </li>
+        <li>
+          <%= button_to "Sign Out", session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= nav_link_to "Sign In", signin_path %>
+        </li>
+        <li>
+          <%= nav_link_to "Sign Up", signup_path %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+
+  <div class="logo">
+    <%= link_to baits_path do %>
+      <%= image_tag("logo.svg") %>
+      <h1>Gone Fishin'</h1>
+    <% end %>
+  </div>
+
+  <nav class="secondary">
+    <ul>
+      <li>
+        <%= nav_link_to "Baits", baits_path %>
+      </li>
+      <li>
+        <%= nav_link_to "Tackle Box", tackle_box_items_path %>
+        <% if signed_in? %>
+          <div class="item-count">
+            <%= current_user.tackle_box_items.size %>
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= nav_link_to "Catches", fish_catches_path %>
+      </li>
+      <li>
+        <%= nav_link_to "Activity", activity_path %>
+      </li>
+    </ul>
+  </nav>
+</header>

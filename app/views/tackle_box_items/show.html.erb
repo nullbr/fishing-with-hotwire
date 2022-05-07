@@ -1,0 +1,22 @@
+<div class="baits">
+  <% @items.each do |item| %>
+    <%= link_to image_tag(item.bait.image),
+                tackle_box_item_path(item),
+                class: ("selected" if @item == item) %>
+  <% end %>
+</div>
+
+<div class="selected-item">
+  <div class="header">
+    <div class="name-category">
+      <%= @item.bait.name %> &bull; <%= @item.bait.category %>
+    </div>
+    <%= render "stats", fish_catches: @fish_catches %>
+  </div>
+
+  <%= render "fish_catches/form", fish_catch: @new_catch %>
+
+  <div class="catches">
+    <%= render @fish_catches %>
+  </div>
+</div>

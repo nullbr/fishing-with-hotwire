@@ -1,0 +1,20 @@
+<div class="bait">
+  <%= link_to image_tag(bait.image), bait %>
+  <div class="name">
+    <%= link_to bait.name, bait %>
+  </div>
+  <div class="category">
+    <%= bait.category %>
+  </div>
+  <div class="popularity">
+    <%= bait.tackle_box_items_count %>
+  </div>
+  <% if signed_in? %>
+    <% if item = bait.my_tackle_box_item %>
+      <%= button_to "Remove", tackle_box_item_path(item),
+                    method: :delete %>
+    <% else %>
+      <%= button_to "Add", tackle_box_items_path(bait_id: bait) %>
+    <% end %>
+  <% end %>
+</div>

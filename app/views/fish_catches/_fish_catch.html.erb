@@ -1,0 +1,19 @@
+<div class="catch">
+  <div class="species">
+    <%= fish_catch.species %>
+  </div>
+  <div class="weight">
+    <%= fish_catch.weight %> lbs
+  </div>
+  <div class="length">
+    <%= fish_catch.length %> in
+  </div>
+  <div class="actions">
+    <%= link_to image_tag("pencil.svg"),
+                edit_fish_catch_path(fish_catch)%>
+
+    <%= button_to fish_catch_path(fish_catch), method: :delete do %>
+      <%= image_tag("trash.svg") %>
+    <% end %>
+  </div>
+</div>

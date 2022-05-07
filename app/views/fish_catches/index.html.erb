@@ -1,0 +1,75 @@
+<div class="filter">
+  <%= form_with(url: fish_catches_path, method: :get) do |f| %>
+    <div class="row-1">
+      <div>
+        <%= f.select :bait, @bait_names,
+            include_blank: "Any Bait", selected: params[:bait] %>
+      </div>
+      <div>
+        <%= f.select :species, @species,
+            include_blank: "Any Species", selected: params[:species] %>
+      </div>
+
+      <%= f.hidden_field :sort, value: params[:sort] %>
+      <%= f.hidden_field :direction, value: params[:direction] %>
+
+      <div>
+        <%= f.submit "Filter" %>
+      </div>
+    </div>
+    <div class="row-2">
+      Show
+      <%= f.select :per_page,
+            options_for_select([5, 10, 25, 50, 100],
+            selected: params[:per_page]) %>
+    </div>
+  <% end %>
+</div>
+
+<% if @fish_catches.any? %>
+  <div class="fish-catches">
+    <table>
+      <thead>
+        <tr>
+          <th class="bait">
+            <%= sort_link_to "Bait", "bait" %>
+          </th>
+          <th class="species">
+            <%= sort_link_to "Species", "species" %>
+          </th>
+          <th class="weight">
+            <%= sort_link_to "Weight", "weight" %>
+          </th>
+          <th class="length">
+            <%= sort_link_to "Length", "length" %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @fish_catches.each do |fish_catch| %>
+          <tr>
+            <td class="bait">
+              <%= fish_catch.bait.name %>
+            </td>
+            <td class="species">
+              <%= fish_catch.species %>
+            </td>
+            <td class="weight">
+              <%= fish_catch.weight %> lbs
+            </td>
+            <td class="length">
+              <%= fish_catch.length %> in
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <% if @pagy.pages > 1 %>
+      <div class="footer">
+        <%== pagy_nav(@pagy) %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <%= render "no_catches" %>
+<% end %>

@@ -1,0 +1,22 @@
+<div class="details">
+  <div>
+    <%= link_to image_tag(fish_catch.bait.image), fish_catch.bait %>
+  </div>
+  <div>
+    <span class="user">
+      <%= fish_catch.user.username %>
+    </span>
+    caught a
+    <span class="species">
+      <%= fish_catch.species %>
+    </span>
+    weighing
+    <span class="weight">
+      <%= fish_catch.weight %> lbs
+    </span>
+    and measuring
+    <span class="length">
+      <%= fish_catch.length %> in
+    </span>
+  </div>
+</div>

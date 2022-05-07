@@ -1,0 +1,33 @@
+<%= form_with(model: fish_catch) do |f| %>
+  <div>
+    <%= f.label :species %>
+    <%= f.select :species, FishCatch::SPECIES,
+                   {include_blank: "Species" },
+                   {required: true, autofocus: true} %>
+  </div>
+
+  <div>
+    <%= f.label :weight %>
+    <%= f.number_field :weight, step: "any",
+                       placeholder: "Weight (lbs)",
+                       required: true %>
+  </div>
+
+  <div>
+    <%= f.label :length %>
+    <%= f.number_field :length, step: "any",
+                       placeholder: "Length (in)",
+                       required: true %>
+  </div>
+
+  <%= f.hidden_field :bait_id, value: fish_catch.bait_id %>
+
+  <% if fish_catch.new_record? %>
+    <%= f.submit "Log Catch" %>
+  <% else %>
+    <div class="save-cancel">
+      <%= f.submit "Save" %>
+      <%= link_to "Cancel", @fish_catch %>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<% if like = fish_catch.my_like %>
+  <%= button_to fish_catch_like_path(fish_catch, like), method: :delete do %>
+    <%= image_tag("full-heart.svg") %>
+    <%= fish_catch.likes_count %>
+  <% end %>
+<% else %>
+  <%= button_to fish_catch_likes_path(fish_catch) do %>
+    <%= image_tag("empty-heart.svg") %>
+    <%= fish_catch.likes_count %>
+  <% end %>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="header">
+  <div>
+    <h2 class="name">
+      <%= @bait.name %>
+    </h2>
+    <div class="category">
+      <%= @bait.category %>
+    </div>
+    <div class="description">
+      <%= @bait.description %>
+    </div>
+  </div>
+  <%= image_tag @bait.image %>
+</div>
+
+<h3>Top 10 Catches</h3>
+<table class="top-catches">
+  <tbody>
+    <% @top_catches.each do |fish_catch| %>
+      <tr>
+        <td class="weight">
+          <%= fish_catch.weight %> lbs
+        </td>
+        <td class="species">
+          <%= fish_catch.species %>
+        </td>
+        <td class="user">
+          <%= fish_catch.user.username %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

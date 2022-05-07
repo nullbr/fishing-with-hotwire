@@ -1,0 +1,24 @@
+<div class="search">
+  <%= form_with(url: baits_path, method: :get) do |f| %>
+    <div>
+      <%= f.search_field :name, placeholder: 'Name...',
+            value: params[:name] %>
+    </div>
+    <div>
+      <%= f.select :category, @bait_categories,
+            include_blank: "Any Category", selected: params[:category] %>
+    </div>
+    <div>
+      <%= f.select :sort,
+            [["By Name", "name"], ["By Popularity", "tackle_box_items_count"]],
+            include_blank: "Sort By", selected: params[:sort] %>
+    </div>
+    <div>
+      <%= f.submit "Search" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="baits">
+  <%= render @baits %>
+</div>

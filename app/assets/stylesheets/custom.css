@@ -1,0 +1,1131 @@
+/* Turbo Elements */
+
+/*
+turbo-frame:not(:empty) {
+  @apply block border-2 border-dashed border-blue-800;
+}
+
+turbo-frame::before {
+  @apply inline-block relative -top-4 -right-4 p-1 bg-white text-sm text-blue-800 border border-blue-800 content-[attr(id)];
+}
+*/
+
+.turbo-progress-bar {
+  @apply h-2 bg-emerald-200;
+}
+
+/* Buttons */
+
+.btn {
+  @apply w-full py-2 px-4 border border-transparent text-sm font-semibold rounded-md text-white bg-blue-500 transition duration-150 ease-in-out shadow-md cursor-pointer;
+}
+
+.btn:focus {
+  @apply outline-none border-blue-700 ring-2 ring-offset-2 ring-blue-300;
+}
+
+.btn:active {
+  @apply bg-blue-700;
+}
+
+.btn:hover {
+  @apply bg-blue-600;
+}
+
+/* Body */
+
+body {
+  @apply antialiased relative font-sans bg-blue-100 h-full;
+
+  /* prevents scrollbar from repositioning page which feels like a reload */
+  @apply overflow-y-scroll;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%236d85ac' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: "Inter var";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+  font-named-instance: "Regular";
+}
+
+@font-face {
+  font-family: "SomethingFishy";
+  src: url("../fonts/something-fishy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Header */
+
+header {
+  @apply bg-gradient-to-r from-emerald-400 to-blue-500;
+
+  & nav {
+    & a,
+    & button[type="submit"] {
+      @apply opacity-70 hover:opacity-100 cursor-pointer;
+    }
+
+    & a.active {
+      @apply opacity-100;
+    }
+  }
+
+  & nav.primary {
+    @apply py-3 px-4 flex justify-end items-center;
+
+    & ul {
+      @apply inline-flex;
+
+      & li {
+        @apply px-2 text-base sm:text-lg text-gray-200 hover:text-gray-100;
+      }
+
+      & a,
+      & button[type="submit"],
+      & input[type="submit"] {
+        @apply font-medium border-b-2 border-transparent;
+      }
+
+      & a.active {
+        @apply border-emerald-200;
+      }
+    }
+  }
+
+  & nav.secondary {
+    @apply pb-4 flex items-center justify-center;
+
+    & ul {
+      @apply flex items-center space-x-6 sm:space-x-12;
+
+      & li {
+        @apply flex items-center text-lg sm:text-2xl font-medium text-gray-100 relative;
+
+        & .item-count {
+          @apply absolute top-1 -right-2 px-1 py-px sm:-right-3 sm:px-2 sm:py-1 text-xs font-bold leading-none text-emerald-800 transform translate-x-1/2 -translate-y-1/2 bg-emerald-200 rounded-full;
+        }
+
+        &.shake {
+          animation: shake 0.5s ease-in-out;
+        }
+
+        &.wiggle {
+          animation: wiggle 0.5s ease-in-out;
+        }
+      }
+
+      & a {
+        @apply border-b-4 border-transparent;
+      }
+
+      & a.active {
+        @apply border-emerald-200;
+      }
+    }
+  }
+
+  & .logo {
+    @apply pb-4 flex items-baseline justify-center;
+
+    & a {
+      @apply flex items-baseline justify-center;
+    }
+
+    & img {
+      @apply inline-block align-top mr-4 w-14 h-14;
+    }
+
+    & h1 {
+      @apply text-5xl md:text-6xl uppercase tracking-wide inline-block text-gray-200 font-normal font-fishy;
+    }
+  }
+}
+
+/* Main */
+
+main {
+  @apply mt-10 container;
+
+  /* Form Inputs */
+
+  & label {
+    @apply block mb-2 text-sm font-semibold text-gray-700;
+  }
+
+  & input[type="text"],
+  & input[type="search"],
+  & input[type="number"],
+  & input[type="password"] {
+    @apply mb-4 w-full appearance-none relative block shadow-sm px-3 py-2 border border-gray-300 text-gray-900 rounded-lg transition duration-150 ease-in-out text-sm;
+  }
+
+  & input[type="text"]:focus,
+  & input[type="search"]:focus,
+  & input[type="number"]:focus,
+  & input[type="password"]:focus {
+    @apply outline-none ring-1 ring-blue-300 border-blue-300;
+  }
+
+  & button[type="submit"],
+  & input[type="submit"] {
+    @apply w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 transition duration-150 ease-in-out shadow-sm cursor-pointer;
+  }
+
+  & button[type="submit"]:focus,
+  & input[type="submit"]:focus {
+    @apply outline-none border-blue-700 ring-2 ring-offset-2 ring-blue-300;
+  }
+
+  & button[type="submit"]:active,
+  & input[type="submit"]:active {
+    @apply bg-blue-700;
+  }
+
+  & button[type="submit"]:hover,
+  & input[type="submit"]:hover {
+    @apply bg-blue-600;
+  }
+
+  & select {
+    @apply w-full appearance-none relative block shadow-sm py-2 text-lg border-gray-300 rounded-md;
+  }
+
+  & select:focus {
+    @apply outline-none ring-1 ring-blue-300 border-blue-300;
+  }
+
+  & .field-with-errors {
+    & input,
+    & textarea,
+    & select {
+      @apply border-red-300;
+    }
+
+    & .error {
+      @apply block text-red-700 text-sm;
+    }
+  }
+}
+
+/* Footer */
+
+footer {
+  @apply mt-10 mb-0 text-center text-sm sm:text-base py-4 text-gray-500;
+
+  & p {
+    @apply my-1;
+  }
+
+  & a {
+    @apply underline;
+  }
+}
+
+/* Baits Index Page */
+
+#baits_index {
+  & .search {
+    @apply mb-4 relative;
+
+    & form {
+      @apply space-y-2 sm:flex sm:space-x-2 sm:space-y-0 items-center justify-center;
+
+      & input,
+      & select {
+        @apply mb-0 text-base;
+      }
+
+      & input[type="text"],
+      & input[type="search"],
+      & select {
+        @apply bg-gray-100 text-gray-700;
+      }
+
+      & input[type="text"],
+      & input[type="search"] {
+        @apply sm:w-48;
+      }
+
+      & a {
+        @apply inline underline;
+      }
+
+      & input[type="submit"] {
+        @apply bg-gray-200 text-gray-800 border border-gray-400;
+      }
+
+      & input[type="submit"]:focus {
+        @apply border-gray-700 ring-2 ring-offset-2 ring-gray-300;
+      }
+
+      & input[type="submit"]:active {
+        @apply bg-gray-700;
+      }
+
+      & input[type="submit"]:hover {
+        @apply bg-gray-400;
+      }
+    }
+  }
+
+  & .baits {
+    @apply flex items-center flex-wrap justify-center;
+
+    & .bait {
+      @apply relative m-6 p-6 rounded-lg bg-white shadow-lg;
+
+      & img {
+        @apply w-full object-cover object-center;
+      }
+
+      & img:hover {
+        animation: wiggle 0.6s 1;
+      }
+
+      & .name {
+        @apply pt-6 text-center text-gray-900 font-bold text-xl;
+
+        & a:hover {
+          @apply underline;
+        }
+      }
+
+      & .category {
+        @apply pt-0 text-center text-lg font-medium text-gray-700;
+      }
+
+      & .popularity {
+        @apply absolute -top-0 right-0 rounded-bl-xl rounded-tr-lg font-semibold p-3 text-sm bg-blue-200 border-2 border-blue-300 text-blue-800 leading-none;
+      }
+
+      & button[type="submit"],
+      & input[type="submit"] {
+        @apply mt-6 uppercase tracking-wider;
+      }
+    }
+  }
+}
+
+/* Baits Show Page */
+
+#baits_show {
+  @apply mx-auto max-w-3xl bg-white shadow rounded-lg pb-4;
+
+  & .header {
+    @apply md:flex md:items-center md:justify-evenly md:space-x-8 p-6 border-b-2 border-gray-200 rounded-t-lg bg-gray-100;
+
+    & img {
+      @apply mx-auto w-56;
+    }
+
+    & img:hover {
+      animation: wiggle 0.6s 1;
+    }
+
+    & .name {
+      @apply text-2xl text-center font-bold text-gray-900;
+    }
+
+    & .category {
+      @apply text-xl text-center font-medium text-gray-500;
+    }
+
+    & .description {
+      @apply text-base mt-4 font-normal text-left text-gray-800;
+    }
+  }
+
+  & h3 {
+    @apply mt-8 text-center text-xl font-extrabold text-gray-500;
+  }
+
+  & table.top-catches {
+    @apply mt-4 px-4 mx-auto max-w-3xl;
+
+    & td {
+      @apply px-8 py-3 whitespace-nowrap text-base font-medium text-gray-700 text-left;
+    }
+
+    & tbody {
+      @apply bg-white divide-y divide-gray-200;
+    }
+
+    & td.weight {
+      @apply text-right font-extrabold;
+    }
+  }
+}
+
+/* Tackle Box Items Index Page */
+
+#tackle_box_items_index {
+  & .empty {
+    @apply mx-auto max-w-xl w-full bg-white mt-16 px-10 py-8 shadow-md rounded-lg;
+
+    & h2 {
+      @apply text-center text-2xl font-extrabold text-gray-800;
+    }
+
+    & p {
+      @apply mt-2 text-center text-xl font-normal text-gray-500;
+
+      & a {
+        @apply underline;
+      }
+    }
+  }
+}
+
+/* Tackle Box Items Show Page */
+
+#tackle_box_items_show {
+  @apply flex flex-col items-center space-y-10 md:items-start md:space-y-6 md:flex-row mx-auto md:max-w-7xl;
+
+  & .baits {
+    @apply w-56;
+
+    & .selected img {
+      @apply border-4 border-blue-300 rounded-md;
+    }
+
+    & img {
+      @apply p-4;
+    }
+
+    & img:hover {
+      @apply transform scale-110 ease-in-out duration-100;
+    }
+  }
+
+  & .selected-item {
+    @apply w-full md:ml-8 bg-white shadow rounded-lg pb-2;
+
+    & .header {
+      @apply p-6 mb-6 border-b-2 border-gray-200 rounded-t-lg bg-gray-100;
+
+      & .name-category {
+        @apply text-2xl font-semibold;
+      }
+
+      & .stats {
+        @apply mt-1 text-lg text-gray-600;
+
+        .count,
+        .weight {
+          @apply font-bold;
+        }
+      }
+    }
+
+    & form {
+      @apply mx-8 flex flex-col space-y-2 md:space-y-0 md:grid md:grid-flow-row md:gap-x-2 md:grid-cols-4;
+
+      & label {
+        @apply sr-only;
+      }
+
+      & input[type="submit"] {
+        @apply text-base py-2 px-2 self-start;
+      }
+
+      & input[type="text"],
+      & input[type="number"],
+      & select {
+        @apply mb-0 text-base;
+      }
+    }
+
+    & .catches {
+      @apply mt-6 grid divide-y divide-gray-200;
+
+      & .edit {
+        @apply px-8 py-4 bg-gray-200;
+
+        & form {
+          @apply mx-0 bg-gray-200 py-0;
+
+          & .save-cancel {
+            @apply flex items-start space-x-1;
+
+            & input[type="submit"] {
+              @apply bg-green-500;
+            }
+
+            & input[type="submit"]:active {
+              @apply bg-green-700;
+            }
+
+            & input[type="submit"]:hover {
+              @apply bg-green-600;
+            }
+
+            & a {
+              @apply w-full py-2 px-4 border border-transparent font-medium rounded-md text-white bg-gray-400 transition duration-150 ease-in-out shadow-sm cursor-pointer text-base text-center;
+            }
+
+            & a:active {
+              @apply bg-gray-600;
+            }
+
+            & a:hover {
+              @apply bg-gray-500;
+            }
+          }
+        }
+      }
+
+      & .catch {
+        @apply px-10 py-6 grid grid-flow-row grid-cols-4 gap-x-1 sm:gap-x-2 items-center;
+
+        & .species {
+          @apply text-left font-bold text-gray-900 whitespace-nowrap truncate;
+        }
+
+        & .weight,
+        & .length,
+        & .actions {
+          @apply text-right font-semibold text-gray-600;
+        }
+
+        & .actions {
+          @apply flex items-center justify-end space-x-1 sm:space-x-3;
+
+          & form {
+            @apply inline-block;
+          }
+
+          & img {
+            @apply h-4 w-4 inline-block;
+          }
+
+          & button[type="submit"],
+          & input[type="submit"] {
+            @apply p-0 border-none rounded-none shadow-none bg-transparent;
+          }
+        }
+      }
+
+      & .highlight {
+        @apply bg-yellow-100;
+      }
+
+      & .fade {
+        @apply transition-colors duration-1000 bg-transparent ease-in-out;
+      }
+
+      & .slide-down {
+        overflow: hidden;
+        animation: slide-down 1s ease-in-out;
+      }
+    }
+  }
+
+  & .empty {
+    @apply mt-8 border-4 border-dashed border-blue-400 max-w-2xl mx-auto p-8 text-xl text-gray-800 text-center rounded-3xl;
+
+    & p {
+      @apply my-2;
+    }
+
+    & a {
+      @apply underline;
+    }
+  }
+}
+
+/* Activity Index Page */
+
+#activity_index {
+  @apply mx-auto max-w-4xl bg-white px-8 shadow rounded-lg text-base text-gray-800 pt-2 h-full;
+
+  & .catch {
+    @apply w-full py-6 border-b border-gray-200 sm:flex sm:items-center space-y-6 sm:space-y-0 sm:justify-between;
+
+    & .details {
+      @apply text-center sm:flex sm:items-center sm:space-x-6 sm:text-left;
+
+      & img {
+        @apply mx-auto my-6 sm:my-0 sm:mx-0 w-36 flex-shrink-0;
+      }
+
+      & .user,
+      & .species,
+      & .weight,
+      & .length {
+        @apply font-bold;
+      }
+    }
+
+    & button {
+      @apply sm:ml-auto text-center sm:flex-shrink-0 tabular-nums whitespace-nowrap;
+
+      & div {
+        @apply inline;
+      }
+
+      & img {
+        @apply h-6 w-6 inline-block;
+      }
+    }
+
+    & button[type="submit"],
+    & input[type="submit"] {
+      @apply border-none rounded-none shadow-none bg-transparent text-base text-gray-700;
+    }
+
+    & button[type="submit"]:focus,
+    & input[type="submit"]:focus {
+      @apply ring-0 ring-offset-0 border-0 outline-none;
+    }
+  }
+
+  /*
+   * This can safely be removed as it's only necessary for
+   * demonstrating how to lazy-load users on the Activity page.
+   */
+  & .users {
+    @apply my-8 grid mx-auto;
+
+    & .user {
+      @apply px-8 py-4 grid grid-flow-row grid-cols-2 gap-x-1 items-center;
+
+      & .username {
+        @apply text-left font-bold text-gray-700;
+      }
+
+      & .created {
+        @apply text-right font-medium text-gray-500;
+      }
+    }
+  }
+}
+
+/* Fish Catches Index Page */
+
+#fish_catches_index {
+  @apply mx-auto max-w-4xl;
+
+  & .filter {
+    @apply mb-4 relative;
+
+    & form {
+      & .row-1 {
+        @apply space-y-2 sm:flex sm:space-x-2 sm:space-y-0 items-center justify-center mb-6;
+      }
+
+      & .row-2 {
+        @apply sm:flex items-center sm:justify-end text-gray-700;
+
+        & select {
+          @apply ml-2 sm:w-20 sm:grow-0;
+        }
+      }
+
+      & select {
+        @apply bg-gray-100 text-gray-700;
+      }
+
+      & input,
+      & select {
+        @apply mb-0 text-base;
+      }
+
+      & input[type="submit"] {
+        @apply bg-gray-200 text-gray-800 border border-gray-400;
+      }
+
+      & input[type="submit"]:focus {
+        @apply border-gray-700 ring-2 ring-offset-2 ring-gray-300;
+      }
+
+      & input[type="submit"]:active {
+        @apply bg-gray-700;
+      }
+
+      & input[type="submit"]:hover {
+        @apply bg-gray-300;
+      }
+
+      & .weight {
+        @apply w-full sm:w-1/2 pt-6 sm:pl-4 text-center;
+
+        & .label {
+          @apply bottom-0 text-sm font-medium text-gray-500;
+        }
+      }
+
+      & .noUi-connect {
+        @apply h-3 bg-blue-400;
+      }
+
+      & .noUi-target {
+        background: transparent;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      & .noUi-touch-area {
+        @apply bg-transparent;
+      }
+
+      & .noUi-handle {
+        @apply h-6 w-6 bg-gray-200 border-4 border-blue-400 shadow-none outline-none;
+
+        border-radius: 50%;
+      }
+
+      & .noUi-handle:after,
+      & .noUi-handle:before {
+        content: "";
+        height: 0px;
+        width: 0px;
+      }
+
+      & .noUi-handle:active {
+        @apply border-blue-500;
+      }
+
+      & .noUi-target.noUi-horizontal .noUi-tooltip {
+        @apply text-sm pb-0 bg-transparent border-none;
+      }
+
+      & .noUi-connects {
+        @apply h-3 bg-gray-300 rounded-full;
+      }
+    }
+  }
+
+  & .no-catches {
+    @apply min-w-full bg-white px-10 py-8 shadow-md rounded-lg;
+
+    & h2 {
+      @apply text-center text-2xl font-extrabold text-gray-800;
+    }
+
+    & p {
+      @apply mt-2 text-center text-xl font-normal text-gray-500;
+
+      & a {
+        @apply underline;
+      }
+    }
+  }
+
+  & .fish-catches {
+    @apply mb-4 align-middle inline-block min-w-full shadow overflow-hidden rounded-lg border-b border-gray-300;
+  }
+
+  & table {
+    @apply min-w-full;
+
+    & th {
+      @apply px-6 py-3 bg-gray-100 text-xs font-medium text-gray-500 uppercase tracking-wider relative;
+
+      & a {
+        @apply no-underline text-gray-500 font-medium m-0;
+      }
+
+      & .sort {
+        @apply ml-1 inline-block w-0 h-0 border-[5px] border-transparent border-b-[7px] border-b-black border-t-0 bg-transparent;
+      }
+
+      & .sort-desc {
+        @apply border-t-[7px] border-t-gray-500 border-b-0;
+      }
+
+      & .sort-asc {
+        @apply border-b-[7px] border-b-gray-500 border-t-0;
+      }
+    }
+
+    & td {
+      @apply px-6 py-3 whitespace-nowrap border-b border-gray-300 text-base font-medium text-gray-700 text-center;
+    }
+
+    & tbody {
+      @apply bg-white;
+    }
+
+    & th.bait,
+    & td.bait {
+      @apply pl-12 text-left;
+    }
+
+    & th.species,
+    & td.species {
+      @apply text-left;
+    }
+
+    & th.weight,
+    & td.weight,
+    & th.length,
+    & td.length {
+      @apply pr-12 text-right;
+    }
+  }
+
+  & .footer {
+    @apply text-center bg-white max-w-4xl mx-auto text-lg py-6;
+  }
+}
+
+/* Fish Catches Show Page */
+
+#fish_catches_show {
+  @apply mx-auto max-w-xl bg-white mt-12 shadow-md rounded-lg;
+
+  & .catch {
+    @apply px-10 py-6 grid grid-flow-row grid-cols-4 gap-x-1 sm:gap-x-2 items-center;
+
+    & .species {
+      @apply text-left font-bold text-gray-900 whitespace-nowrap truncate;
+    }
+
+    & .weight,
+    & .length,
+    & .actions {
+      @apply text-right font-semibold text-gray-600;
+    }
+
+    & .actions {
+      @apply flex items-center justify-end space-x-1 sm:space-x-3;
+
+      & form {
+        @apply inline-block;
+      }
+
+      & img {
+        @apply h-4 w-4 inline-block;
+      }
+
+      & button[type="submit"],
+      & input[type="submit"] {
+        @apply p-0 border-none rounded-none shadow-none bg-transparent;
+      }
+    }
+  }
+}
+
+/* Fish Catches */
+
+#fish_catches_new,
+#fish_catches_create,
+#fish_catches_edit,
+#fish_catches_update {
+  @apply mx-auto max-w-md w-full;
+
+  & h2 {
+    @apply text-center text-3xl font-extrabold text-gray-800;
+  }
+
+  & h3 {
+    @apply mt-2 text-center text-lg font-normal text-gray-500;
+
+    a {
+      @apply underline;
+    }
+  }
+
+  & form {
+    @apply bg-white mt-8 px-10 py-8 shadow-md rounded-lg;
+
+    & .error {
+      @apply -mt-3 mb-3;
+    }
+
+    & input[type="text"],
+    & input[type="number"],
+    & select {
+      @apply text-base;
+    }
+
+    & select {
+      @apply text-base mb-4;
+    }
+  }
+
+  & a {
+    @apply block mt-4 underline text-center text-red-600;
+  }
+}
+
+/* Sessions and Users Pages */
+
+#sessions_new,
+#sessions_create,
+#users_index,
+#users_create,
+#users_show,
+#users_new,
+#users_edit,
+#users_update {
+  @apply mx-auto max-w-md w-full;
+
+  & h2 {
+    @apply text-center text-3xl font-extrabold text-gray-800;
+  }
+
+  & h3 {
+    @apply mt-2 text-center text-lg font-normal text-gray-500;
+
+    & a {
+      @apply underline;
+    }
+  }
+
+  & form:not(.button_to) {
+    @apply bg-white mt-8 px-10 py-8 shadow-md rounded-lg;
+
+    & .error {
+      @apply -mt-3 mb-3;
+    }
+  }
+
+  & .actions {
+    @apply mt-6 flex items-center justify-center space-x-4;
+
+    & .btn-danger {
+      @apply bg-red-500 text-white;
+
+      &:hover {
+        @apply bg-red-400;
+      }
+
+      &:active {
+        @apply bg-red-600;
+      }
+    }
+  }
+
+  & .users {
+    @apply mt-6 grid divide-y divide-gray-200 bg-white shadow rounded-lg;
+
+    & .user {
+      @apply px-8 py-4 grid grid-flow-row grid-cols-2 gap-x-1 items-center;
+
+      & .username {
+        @apply text-left font-bold text-gray-700;
+      }
+
+      & .created {
+        @apply text-right font-medium text-gray-500;
+      }
+    }
+  }
+}
+
+/* Flashes */
+
+.flashes {
+  @apply relative;
+}
+
+.flash {
+  @apply absolute top-0 right-0 text-center text-sm px-4 py-2 font-medium;
+
+  &.notice,
+  &.success {
+    @apply bg-green-200 text-green-900;
+  }
+
+  &.error,
+  &.alert {
+    @apply bg-red-300 text-red-900;
+  }
+}
+
+/* Animation Keyframes */
+
+@keyframes wiggle {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: translateX(6px);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-and-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 5rem;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    max-height: 5rem;
+  }
+  to {
+    max-height: 0;
+  }
+}
+
+/*
+ * Loading Spinner
+ *
+ * Copied from:
+ * https://projects.lukehaas.me/css-loaders/
+ */
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: #3e98dc;
+  font-size: 12px;
+  margin: 12px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+/*
+ * Pagy
+ *
+ * Adapted from:
+ * https://ddnexus.github.io/pagy/extras/tailwind#gsc.tab=0
+ */
+
+.pagy-nav {
+  @apply relative z-0 inline-flex rounded-md shadow-sm -space-x-px;
+}
+
+.pagy-nav .page a,
+.pagy-nav .page.active,
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled {
+  @apply bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium;
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled {
+  @apply text-gray-300 cursor-default;
+}
+
+.pagy-nav .page.prev,
+.pagy-nav .page.prev a {
+  @apply rounded-l-lg;
+}
+
+.pagy-nav .page.next,
+.pagy-nav .page.next a {
+  @apply rounded-r-lg;
+}
+
+.pagy-nav .page.gap {
+  @apply mx-1 text-gray-500;
+}
+
+.pagy-nav .page.active {
+  @apply z-10 bg-blue-50 border-blue-500 text-blue-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium;
+}
