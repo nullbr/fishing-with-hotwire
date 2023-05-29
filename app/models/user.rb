@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_secure_password
 
@@ -6,19 +8,19 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   validates :username, presence: true,
-            uniqueness: { case_sensitive: false }
+                       uniqueness: { case_sensitive: false }
 
-  def filter_catches(params={})
-    associations = {"bait" => "baits.name"}
+  def filter_catches(params = {})
+    associations = { 'bait' => 'baits.name' }
 
     sort_column =
       params[:sort]
-        .presence_in(%w{ bait species weight length }) || "created_at"
+      .presence_in(%w[bait species weight length]) || 'created_at'
 
     sort_column = associations[sort_column] || sort_column
 
     sort_direction =
-      params[:direction].presence_in(%w{ asc desc }) || "desc"
+      params[:direction].presence_in(%w[asc desc]) || 'desc'
 
     fish_catches
       .includes(:bait)
@@ -39,7 +41,7 @@ class User < ApplicationRecord
   def tackle_box_item_for_most_recent_catch
     return nil if tackle_box_items.empty?
 
-    if most_recent_catch = fish_catches.order(created_at: :desc).first
+    if (most_recent_catch = fish_catches.order(created_at: :desc).first)
       item = tackle_box_items.find_by(bait_id: most_recent_catch.bait_id)
       item || tackle_box_items.first
     else

@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class TackleBoxItemsController < ApplicationController
   before_action :require_signin
 
   def index
-    if item = current_user.tackle_box_item_for_most_recent_catch
+    if (item = current_user.tackle_box_item_for_most_recent_catch)
       redirect_to action: :show, id: item
     else
       render :empty

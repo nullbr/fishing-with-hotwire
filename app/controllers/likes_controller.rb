@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   before_action :require_signin
   before_action :find_fish_catch
@@ -18,7 +20,7 @@ class LikesController < ApplicationController
     redirect_to activity_url
   end
 
-private
+  private
 
   def find_fish_catch
     @fish_catch = FishCatch.find(params[:fish_catch_id])

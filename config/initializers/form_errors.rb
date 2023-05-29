@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 # Inline form-field error messages
 
-ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+ActionView::Base.field_error_proc = proc do |html_tag, instance|
   if html_tag =~ /type="hidden"/ || html_tag =~ /<label/
     html_tag
   else
-    %{<div class="field-with-errors">
+    %(<div class="field-with-errors">
         #{html_tag}
         <span class="error">
           #{[instance.error_message].flatten.first}
         </span>
       </div>
-    }.html_safe
+    ).html_safe
   end
 end

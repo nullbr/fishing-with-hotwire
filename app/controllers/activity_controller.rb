@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ActivityController < ApplicationController
   before_action :require_signin
 

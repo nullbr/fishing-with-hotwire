@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # BAITS
 #
@@ -20,10 +22,10 @@ fire_tiger = Bait.create!(
   name: 'Fire Tiger',
   category: 'Spinner',
   image: 'fire-tiger.png',
-  description: "Muddy water or clear water, it makes no difference with this spinner. The Fire Tiger is versatile, consistent, and oh so tempting. 💙"
+  description: 'Muddy water or clear water, it makes no difference with this spinner. The Fire Tiger is versatile, consistent, and oh so tempting. 💙'
 )
 
-mr_mustache = Bait.create!(
+Bait.create!(
   name: 'Mr. Mustache',
   category: 'Popper',
   image: 'mr-mustache.png',
@@ -34,7 +36,7 @@ strike_king = Bait.create!(
   name: 'Strike King',
   category: 'Crankbait',
   image: 'strike-king.png',
-  description: "With the perfect wobble, just the right amount of buoyancy, and spot-on coloring, this bait is the King. 🐡"
+  description: 'With the perfect wobble, just the right amount of buoyancy, and spot-on coloring, this bait is the King. 🐡'
 )
 
 rooster_tail = Bait.create!(
@@ -55,10 +57,10 @@ bucktail = Bait.create!(
   name: 'Bucktail',
   category: 'Spinner',
   image: 'bucktail.png',
-  description: "Time-tested and angler-approved... by the US Navy! During World War II, emergency kits for sailors and pilots included a bucktail along with fishing line. Rumor has it, this bait is still used as survival equipment by Navy Seals today. 🌠"
+  description: 'Time-tested and angler-approved... by the US Navy! During World War II, emergency kits for sailors and pilots included a bucktail along with fishing line. Rumor has it, this bait is still used as survival equipment by Navy Seals today. 🌠'
 )
 
-daredevil = Bait.create!(
+Bait.create!(
   name: 'Daredevil',
   category: 'Spoon',
   image: 'daredevil.png',
@@ -83,7 +85,7 @@ purple_reign = Bait.create!(
   name: 'Purple Reign',
   category: 'Spinner',
   image: 'purple-reign.png',
-  description: "This purple beauty will help you reign in the big fish of the deep. Fish with it by itself or rig it with a rubber worm, live shrimp, or other natural baits."
+  description: 'This purple beauty will help you reign in the big fish of the deep. Fish with it by itself or rig it with a rubber worm, live shrimp, or other natural baits.'
 )
 
 #
@@ -105,182 +107,182 @@ nicole = User.create!(
 #
 
 TackleBoxItem.create!([
-  {
-    user: mike,
-    bait: fat_rap
-  },
-  {
-    user: mike,
-    bait: yummy_gummy
-  },
-  {
-    user: mike,
-    bait: strike_king
-  },
-  {
-    user: mike,
-    bait: marabou_muddler
-  },
-  {
-    user: mike,
-    bait: purple_reign
-  },
-  {
-    user: nicole,
-    bait: fire_tiger
-  },
-  {
-    user: nicole,
-    bait: bucktail
-  },
-  {
-    user: nicole,
-    bait: krocodile
-  },
-  {
-    user: nicole,
-    bait: rooster_tail
-  },
-  {
-    user: nicole,
-    bait: lemon_drop
-  },
-])
+                        {
+                          user: mike,
+                          bait: fat_rap
+                        },
+                        {
+                          user: mike,
+                          bait: yummy_gummy
+                        },
+                        {
+                          user: mike,
+                          bait: strike_king
+                        },
+                        {
+                          user: mike,
+                          bait: marabou_muddler
+                        },
+                        {
+                          user: mike,
+                          bait: purple_reign
+                        },
+                        {
+                          user: nicole,
+                          bait: fire_tiger
+                        },
+                        {
+                          user: nicole,
+                          bait: bucktail
+                        },
+                        {
+                          user: nicole,
+                          bait: krocodile
+                        },
+                        {
+                          user: nicole,
+                          bait: rooster_tail
+                        },
+                        {
+                          user: nicole,
+                          bait: lemon_drop
+                        }
+                      ])
 
 #
 # FISH CATCHES
 #
 
 FishCatch.create!([
-  {
-    user: mike,
-    bait: fat_rap,
-    species: "Walleye",
-    weight: 3.0,
-    length: 18.0,
-    created_at: 3.days.ago
-  },
-  {
-    user: mike,
-    bait: fat_rap,
-    species: "Brown Trout",
-    weight: 5.5,
-    length: 24.0,
-    created_at: 5.days.ago
-  },
-  {
-    user: mike,
-    bait: fat_rap,
-    species: "Lake Trout",
-    weight: 3.5,
-    length: 19.0,
-    created_at: 7.days.ago
-  },
-  {
-    user: mike,
-    bait: fat_rap,
-    species: "Rainbow Trout",
-    weight: 4.5,
-    length: 22.5,
-    created_at: 1.days.ago,
-  },
-  {
-    user: mike,
-    bait: yummy_gummy,
-    species: "Largemouth Bass",
-    weight: 4.25,
-    length: 18.5,
-    created_at: 4.days.ago
-  },
-  {
-    user: mike,
-    bait: yummy_gummy,
-    species: "Walleye",
-    weight: 5.5,
-    length: 21,
-    created_at: 3.days.ago
-  },
-  {
-    user: mike,
-    bait: strike_king,
-    species: "Walleye",
-    weight: 4.0,
-    length: 21.0,
-    created_at: 2.days.ago
-  },
-  {
-    user: mike,
-    bait: strike_king,
-    species: "Brown Trout",
-    weight: 5.25,
-    length: 22.5,
-    created_at: 3.days.ago
-  },
-  {
-    user: mike,
-    bait: strike_king,
-    species: "Rainbow Trout",
-    weight: 3.5,
-    length: 18.5,
-    created_at: 4.days.ago
-  },
-  {
-    user: mike,
-    bait: purple_reign,
-    species: "Bluegill",
-    weight: 1.5,
-    length: 8.5,
-    created_at: 4.days.ago
-  },
-  {
-    user: nicole,
-    bait: fire_tiger,
-    species: "Brown Trout",
-    weight: 4.25,
-    length: 22.0,
-    created_at: 6.days.ago
-  },
-  {
-    user: nicole,
-    bait: fire_tiger,
-    species: "Rainbow Trout",
-    weight: 3.5,
-    length: 19.0,
-    created_at: 5.days.ago
-  },
-  {
-    user: nicole,
-    bait: rooster_tail,
-    species: "Largemouth Bass",
-    weight: 3.0,
-    length: 18.0,
-    created_at: 2.days.ago
-  },
-  {
-    user: nicole,
-    bait: krocodile,
-    species: "Rainbow Trout",
-    weight: 2.5,
-    length: 16.5,
-    created_at: 3.days.ago
-  },
-  {
-    user: nicole,
-    bait: krocodile,
-    species: "Walleye",
-    weight: 2.0,
-    length: 12.0,
-    created_at: 2.days.ago
-  },
-  {
-    user: nicole,
-    bait: bucktail,
-    species: 'Smallmouth Bass',
-    weight: 3.25,
-    length: 14.0,
-    created_at: 8.days.ago
-  }
-])
+                    {
+                      user: mike,
+                      bait: fat_rap,
+                      species: 'Walleye',
+                      weight: 3.0,
+                      length: 18.0,
+                      created_at: 3.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: fat_rap,
+                      species: 'Brown Trout',
+                      weight: 5.5,
+                      length: 24.0,
+                      created_at: 5.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: fat_rap,
+                      species: 'Lake Trout',
+                      weight: 3.5,
+                      length: 19.0,
+                      created_at: 7.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: fat_rap,
+                      species: 'Rainbow Trout',
+                      weight: 4.5,
+                      length: 22.5,
+                      created_at: 1.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: yummy_gummy,
+                      species: 'Largemouth Bass',
+                      weight: 4.25,
+                      length: 18.5,
+                      created_at: 4.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: yummy_gummy,
+                      species: 'Walleye',
+                      weight: 5.5,
+                      length: 21,
+                      created_at: 3.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: strike_king,
+                      species: 'Walleye',
+                      weight: 4.0,
+                      length: 21.0,
+                      created_at: 2.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: strike_king,
+                      species: 'Brown Trout',
+                      weight: 5.25,
+                      length: 22.5,
+                      created_at: 3.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: strike_king,
+                      species: 'Rainbow Trout',
+                      weight: 3.5,
+                      length: 18.5,
+                      created_at: 4.days.ago
+                    },
+                    {
+                      user: mike,
+                      bait: purple_reign,
+                      species: 'Bluegill',
+                      weight: 1.5,
+                      length: 8.5,
+                      created_at: 4.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: fire_tiger,
+                      species: 'Brown Trout',
+                      weight: 4.25,
+                      length: 22.0,
+                      created_at: 6.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: fire_tiger,
+                      species: 'Rainbow Trout',
+                      weight: 3.5,
+                      length: 19.0,
+                      created_at: 5.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: rooster_tail,
+                      species: 'Largemouth Bass',
+                      weight: 3.0,
+                      length: 18.0,
+                      created_at: 2.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: krocodile,
+                      species: 'Rainbow Trout',
+                      weight: 2.5,
+                      length: 16.5,
+                      created_at: 3.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: krocodile,
+                      species: 'Walleye',
+                      weight: 2.0,
+                      length: 12.0,
+                      created_at: 2.days.ago
+                    },
+                    {
+                      user: nicole,
+                      bait: bucktail,
+                      species: 'Smallmouth Bass',
+                      weight: 3.25,
+                      length: 14.0,
+                      created_at: 8.days.ago
+                    }
+                  ])
 
 #
 # RANDOM USERS AND CATCHES
@@ -288,7 +290,7 @@ FishCatch.create!([
 
 baits = Bait.all
 
-names = %w(Macie Grace Walter Erin Sam Brynn Keith Wade Leroy Lucy)
+names = %w[Macie Grace Walter Erin Sam Brynn Keith Wade Leroy Lucy]
 names.each do |name|
   user =
     User.create!(
@@ -298,14 +300,14 @@ names.each do |name|
 
   baits.sample(rand(2..5)).each do |bait|
     TackleBoxItem.create!(
-      user: user,
-      bait: bait
+      user:,
+      bait:
     )
 
     rand(1..3).times do
       FishCatch.create!(
-        user: user,
-        bait: bait,
+        user:,
+        bait:,
         species: FishCatch::SPECIES.sample,
         weight: rand(1..10),
         length: rand(10..30),
@@ -323,12 +325,10 @@ users = User.all
 
 FishCatch.all.each do |fish_catch|
   users.sample(rand(0..9)).each do |user|
-    unless user == fish_catch.user
-      Like.create!(user: user, fish_catch: fish_catch)
-    end
+    Like.create!(user:, fish_catch:) unless user == fish_catch.user
   end
 end
 
 FishCatch.where(user: nicole).each do |fish_catch|
-  Like.create!(user: mike, fish_catch: fish_catch)
+  Like.create!(user: mike, fish_catch:)
 end

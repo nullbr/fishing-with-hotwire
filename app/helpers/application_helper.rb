@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   include Pagy::Frontend
 
@@ -5,12 +7,12 @@ module ApplicationHelper
     "#{controller_name.underscore}_#{action_name}"
   end
 
-  def nav_link_to(text, url, options={})
+  def nav_link_to(text, url, options = {})
     link_to(text, url, options.merge(class: nav_link_class(url)))
   end
 
   def nav_link_class(url)
-    page_active?(url) ? "active" : ""
+    page_active?(url) ? 'active' : ''
   end
 
   def page_active?(url)

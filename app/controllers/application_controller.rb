@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Pagy::Backend
 
-private
+  private
 
   def require_signin
-    unless signed_in?
-      session[:intended_url] = request.url
-      redirect_to signin_url
-    end
+    return if signed_in?
+
+    session[:intended_url] = request.url
+    redirect_to signin_url
   end
 
   def current_user
