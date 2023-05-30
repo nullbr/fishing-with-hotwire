@@ -34,7 +34,7 @@
       <li>
         <%= nav_link_to "Tackle Box", tackle_box_items_path %>
         <% if signed_in? %>
-          <div class="item-count">
+          <div class="item-count" id="tackle_box_items_count" data-turbo-permanent>
             <%= current_user.tackle_box_items.size %>
           </div>
         <% end %>

@@ -1,1 +1,3 @@
 <%= turbo_stream.replace @bait, @bait %>
+
+<%= turbo_stream.update "tackle_box_items_count", current_user.tackle_box_items.size %>
