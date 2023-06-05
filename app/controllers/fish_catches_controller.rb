@@ -29,7 +29,9 @@ class FishCatchesController < ApplicationController
     @fish_catch = current_user.fish_catches.new(fish_catch_params)
 
     if @fish_catch.save
-      redirect_to tackle_box_item_for_catch(@fish_catch)
+      @fish_catches = fish_catches_for_bait(@fish_catch.bait)
+
+      @new_catch = current_user.fish_catches.new(bait: @fish_catch.bait)
     else
       render :new, status: :unprocessable_entity
     end
