@@ -14,9 +14,9 @@
       <%= render "stats", fish_catches: @fish_catches %>
     </div>
   </div>
-  <div id="new-catch">
+  <%= turbo_frame_tag "new-catch" do %>
     <%= render "fish_catches/form", fish_catch: @new_catch %>
-  </div>
+  <% end %>
   <div class="catches" id="catches">
     <%= render @fish_catches %>
   </div>
