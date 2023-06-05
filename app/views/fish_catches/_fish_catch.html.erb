@@ -1,4 +1,4 @@
-<div class="catch">
+<div class="catch" id=<%= dom_id(fish_catch) %>>
   <div class="species">
     <%= fish_catch.species %>
   </div>
@@ -11,8 +11,8 @@
   <div class="actions">
     <%= link_to image_tag("pencil.svg"),
                 edit_fish_catch_path(fish_catch)%>
-
-    <%= button_to fish_catch_path(fish_catch), method: :delete do %>
+    <%= button_to fish_catch_path(fish_catch), method: :delete,
+          form: { data: { turbo_confirm: "Are you sure?"} } do %>
       <%= image_tag("trash.svg") %>
     <% end %>
   </div>

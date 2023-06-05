@@ -40,7 +40,7 @@ class FishCatchesController < ApplicationController
   def destroy
     @fish_catch.destroy
 
-    redirect_to tackle_box_item_for_catch(@fish_catch)
+    @fish_catches = fish_catches_for_bait(@fish_catch.bait)
   end
 
   private
