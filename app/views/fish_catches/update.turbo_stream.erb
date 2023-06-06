@@ -1,0 +1,4 @@
+<%= turbo_stream.update "stats",
+    partial: "tackle_box_items/stats",
+    locals: { fish_catches: @fish_catches } %>
+<%= turbo_stream.replace @fish_catch, @fish_catch %>
