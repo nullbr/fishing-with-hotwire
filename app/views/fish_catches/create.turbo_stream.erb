@@ -5,6 +5,7 @@
 <%= turbo_stream.update "new-catch" do %>
   <%= render "form", fish_catch: @new_catch %>
 <% end %>
+<%= render_flash_stream %>
 <%#= turbo_stream.update "stats" do %>
   <%#= render "tackle_box_items/stats", fish_catches: @fish_catches %>
   <%# end %>
