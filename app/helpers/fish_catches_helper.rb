@@ -11,7 +11,7 @@ module FishCatchesHelper
     params = request.params
                     .merge(sort: column, direction: next_direction(column))
 
-    link_to name, params, data: { turbo_action: 'advance' }
+    link_to name, params, data: { turbo_action: 'advance', action: 'turbo:click->sort-link#updateForm' }
   end
 
   def next_direction(column)

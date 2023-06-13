@@ -5,7 +5,7 @@
 import { application } from "./application";
 
 import SortLinkController from "./sort_link_controller";
-application.register("sortLink", SortLinkController);
+application.register("sort-link", SortLinkController);
 
 import FlashController from "./flash_controller";
 application.register("flash", FlashController);
