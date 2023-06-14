@@ -1,5 +1,12 @@
 <%= turbo_stream_from "activity" %>
 <div id="catches">
-  <%= render collection: @fish_catches,
+  <%= turbo_frame_tag "catches_page_#{@pagy.page}" do %>
+    <%= render collection: @fish_catches,
            partial: "activity/fish_catch" %>
+    <% if @pagy.next %>
+      <%= turbo_frame_tag "catches_page_#{@pagy.next}", src: activity_path(page: @pagy.next), loading: :lazy do %>
+        <div class="loader">Loading...</div>
+      <% end %>
+    <% end %>
+  <% end %>
 </div>

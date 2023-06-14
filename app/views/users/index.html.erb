@@ -1,3 +1,5 @@
-<div class="users" id="users">
-  <%= render @users %>
-</div>
+<%= turbo_frame_tag "users" do %>
+  <div class="users" id="users">
+    <%= render @users %>
+  </div>
+<% end %>
