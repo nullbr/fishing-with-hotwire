@@ -1,2 +1,5 @@
-<%= render collection: @fish_catches,
+<%= turbo_stream_from "activity" %>
+<div id="catches">
+  <%= render collection: @fish_catches,
            partial: "activity/fish_catch" %>
+</div>

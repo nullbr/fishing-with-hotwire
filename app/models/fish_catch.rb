@@ -1,9 +1,25 @@
 # frozen_string_literal: true
 
 class FishCatch < ApplicationRecord
+  include ActionView::RecordIdentifier
+
   belongs_to :bait
   belongs_to :user
   has_many :likes, dependent: :destroy
+
+  after_create_commit lambda {
+    broadcast_prepend_later_to 'activity', target: 'catches',
+                                           partial: 'activity/fish_catch'
+  }
+
+  after_update_commit lambda {
+    broadcast_replace_later_to 'activity', target: "#{dom_id(self)}_details",
+                                           partial: 'activity/catch_details'
+  }
+
+  after_destroy_commit lambda {
+    broadcast_remove_to 'activity'
+  }
 
   SPECIES = [
     'Brown Trout',

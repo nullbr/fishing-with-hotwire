@@ -1,5 +1,4 @@
-<div class="catch">
+<%= tag.div class: "catch", id: dom_id(fish_catch) do %>
   <%= render "activity/catch_details", fish_catch: fish_catch %>
-
   <%= render "activity/catch_likes", fish_catch: fish_catch %>
-</div>
+<% end %>

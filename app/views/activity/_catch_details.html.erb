@@ -1,4 +1,4 @@
-<div class="details">
+<%= tag.div class: "details", id: "#{dom_id(fish_catch)}_details" do %>
   <div>
     <%= link_to image_tag(fish_catch.bait.image), fish_catch.bait %>
   </div>
@@ -19,4 +19,4 @@
       <%= fish_catch.length %> in
     </span>
   </div>
-</div>
+<% end %>
